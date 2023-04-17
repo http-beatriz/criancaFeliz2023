@@ -1,0 +1,78 @@
+ion-col {
+    position: relative;
+    
+    .logo {
+        ion-img {
+            height: 64px;
+            width: auto;
+        }
+        &::after {
+            content: '';
+            height: 41px;
+            width: 2px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: block;
+            background-color: #AEB0B0;
+        }
+    }
+
+    .municipio {
+        ion-image {
+            max-height: 95px;
+        }
+    }
+}
+
+ion-menu {
+    --width: 100%;
+}
+
+ion-list {
+    margin-top: 40px;
+    background: none!important;
+}
+
+ion-grid {
+    &.social {
+        text-align: center;
+        position: relative;
+        text-align: center!important;
+        margin-top: 30%;
+        padding: 0;
+
+        ion-row {
+            display: flex;
+            justify-content: center;
+
+            ion-col {
+                &:not(:first-child) {
+                    margin-left: 12px;
+                }
+                ion-icon {
+                    fill: var(--ion-color-primary);
+                    font-size: 24px;
+                }
+                ion-label {
+                    line-height: .1;
+                    font-size: 12px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+
+.virtual-vision {
+    position: fixed;
+    right: 0;
+    bottom: 20px;
+    left: 0;
+}
+.copyright {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}

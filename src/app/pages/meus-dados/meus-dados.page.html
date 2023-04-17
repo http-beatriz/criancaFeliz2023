@@ -1,0 +1,328 @@
+<app-header title="Meus Dados" ></app-header>
+
+<ion-content>
+
+   
+   <style>
+    .center-cropped {
+  object-fit: cover; /* Do not scale the image */
+  object-position: center; /* Center the image within the element */
+  height: 100px;
+  width: 45vw;
+  border-radius: 50%;
+}
+   </style>
+    <ion-grid>
+        <ion-row>
+            <div style="display: {{temCoordenada}}">
+              <ion-button class="toast-button" expand="block" (click)="fetchLocation()" >
+                <span>Por favor, informe a localização do seu domicílio.</span>
+            </ion-button>  
+            </div>
+            <!-- <ion-button class="toast-button" expand="block" routerLink="/selecao-domicilio"><span>Por favor, informe a localização do seu domicílio.</span></ion-button> -->
+        </ion-row>
+       
+        
+        <ion-row>
+            <ion-col size="6">
+                <ion-card>
+                    <ion-card-content class="" >
+                        <!-- style="aspect-ratio : 1 / 1; width: 100%;" -->
+                        <ion-button style="vertical-align: middle; width: 45vw; height: 45vw; border-radius: 50%;"   *ngIf="obj.usuarioLogado.flagFoto==0" (click)="tiraFoto()">
+                            <ion-icon name="camera"></ion-icon>
+                            Insira
+                        </ion-button>
+
+                        <!-- <ion-label class="user-avatar" *ngFor="let file of images; let i = index">
+                        <ion-img [src]="file.data" *ngIf="i<1"></ion-img>
+                        <figcaption>
+                            <ion-icon name="camera" (click)="selectImage()"></ion-icon>
+                        </figcaption>
+                    </ion-label> -->
+
+                        <!--<ion-avatar  style=" width: 100%; height: 100%;">-->
+                            
+                                <!-- <img src = "{{imagem}}" id = "imagem"
+                                style="vertical-align: middle; width: 45vw; height: 45vw; border-radius: 50%;"  
+                                
+                                (click)="tiraFoto()"
+                                 /> -->
+                            
+                                 <img src = "{{imagem}}" id = "imagem"
+                                 class="center-cropped" *ngIf="obj.usuarioLogado.flagFoto==1" 
+                                 
+                                 (click)="tiraFoto()" />
+                          
+                    </ion-card-content>
+
+                </ion-card>
+            </ion-col>
+            <ion-col size="6">
+                <ion-card>
+                    <ion-card-content >
+
+                        <ngx-qrcode style = "width: 45vw; height: 45vw;"
+                            [elementType]="elementType" 
+                            [errorCorrectionLevel]="correctionLevel" 
+                            [value]="value"
+                            [width]=1000
+                            alt="Demo QR Code"
+                        ></ngx-qrcode>
+
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-text>
+                    <h2>Dados Pessoais</h2>
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <img src="{{obj.usuarioLogado.image}}">
+        <br>
+        <img src="{{obj.usuarioLogado.assinatura}}">
+        <ion-row>
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>
+                        <ion-item lines="none" class="ion-no-padding">
+                            <ion-label>
+                                <ion-card-title>Nome</ion-card-title>
+                                <ion-card-subtitle>{{obj.usuarioLogado.nome}}</ion-card-subtitle>
+                            </ion-label>
+
+                        </ion-item>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>
+                        <ion-item lines="none" class="ion-no-padding">
+                            <ion-label>
+                                <ion-card-title>Função</ion-card-title>
+                                <ion-card-subtitle>{{obj.usuarioLogado.logi}}</ion-card-subtitle>
+                            </ion-label>
+                            <ion-button fill="clear" slot="end" > <!-- routerLink="/editar-dados" -->
+                                <ion-icon name="create"></ion-icon>
+                            </ion-button>
+                        </ion-item>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>
+                        <ion-item lines="none" class="ion-no-padding">
+                            <ion-label>
+                                <ion-card-title>Nome da Mãe</ion-card-title>
+                               
+                                <ion-card-subtitle>{{obj.usuarioLogado.image}}</ion-card-subtitle>
+                            </ion-label>
+                        </ion-item>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>
+                        <ion-item lines="none" class="ion-no-padding">
+                            <ion-label>
+                                <ion-card-title>Telefone Fixo</ion-card-title>
+                                <ion-card-subtitle>7070-7070</ion-card-subtitle>
+                            </ion-label>
+                            <ion-button fill="clear" slot="end" routerLink="/editar-dados">
+                                <ion-icon name="create"></ion-icon>
+                            </ion-button>
+                        </ion-item>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>
+                        <ion-item lines="none" class="ion-no-padding">
+                            <ion-label>
+                                <ion-card-title>Telefone Celular</ion-card-title>
+                                <ion-card-subtitle>7070-7070</ion-card-subtitle>
+                            </ion-label>
+                            <ion-button fill="clear" slot="end" routerLink="">
+                                <ion-icon name="create"></ion-icon>
+                            </ion-button>
+                        </ion-item>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>
+                        <ion-item lines="none" class="ion-no-padding">
+                            <ion-label>
+                                <ion-card-title>Data de Nascimento</ion-card-title>
+                                <ion-card-subtitle>25/03</ion-card-subtitle>
+                            </ion-label>
+                        </ion-item>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>
+                        <ion-item lines="none" class="ion-no-padding">
+                            <ion-label>
+                                <ion-card-title>Tipo Sanguíneo</ion-card-title>
+                                <ion-card-subtitle>A</ion-card-subtitle>
+                            </ion-label>
+                        </ion-item>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>
+                        <ion-item lines="none" class="ion-no-padding">
+                            <ion-label>
+                                <ion-card-title>Código Familiar</ion-card-title>
+                                <ion-card-subtitle>{{obj.usuarioLogado.codigoFormatado}}</ion-card-subtitle>
+                            </ion-label>
+                        </ion-item>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>
+                        <ion-item lines="none" class="ion-no-padding">
+                            <ion-label>
+                                <ion-card-title>NIS</ion-card-title>
+                                <ion-card-subtitle>5678</ion-card-subtitle>
+                            </ion-label>
+                        </ion-item>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>
+                        <ion-item lines="none" class="ion-no-padding">
+                            <ion-label>
+                                <ion-card-title>CPF</ion-card-title>
+                                <ion-card-subtitle>12345678910</ion-card-subtitle>
+                            </ion-label>
+                        </ion-item>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>
+                        <ion-item lines="none" class="ion-no-padding">
+                            <ion-label>
+                                <ion-card-title>RG</ion-card-title>
+                                <ion-card-subtitle>1234567</ion-card-subtitle>
+                            </ion-label>
+                        </ion-item>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>
+                        <ion-item lines="none" class="ion-no-padding">
+                            <ion-label>
+                                <ion-card-title>Cartão do SUS</ion-card-title>
+                                <ion-card-subtitle>123456</ion-card-subtitle>
+                            </ion-label>
+                        </ion-item>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>
+                        <ion-item lines="none" class="ion-no-padding">
+                            <ion-label>
+                                <ion-card-title>CRAS</ion-card-title>
+                                <ion-card-subtitle>12345</ion-card-subtitle>
+                            </ion-label>
+                        </ion-item>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>
+                        <ion-item lines="none" class="ion-no-padding">
+                            <ion-label>
+                                <ion-card-title>Endereço</ion-card-title>
+                                <ion-card-subtitle>rua dos bobos, 0</ion-card-subtitle>
+                            </ion-label>
+                        </ion-item>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-card routerLink="/selecao-domicilio">
+                    <ion-card-header>
+                        <ion-item lines="none" class="ion-no-padding">
+                            <ion-label>
+                                <ion-card-title>Localização do Domicílio</ion-card-title>
+                                <ion-card-subtitle> 12345678903456789, 1234567890 </ion-card-subtitle>
+                            </ion-label>
+                            <ion-button fill="clear" slot="end" routerLink="/selecao-domicilio">
+                                <ion-icon name="create"></ion-icon>
+                            </ion-button>
+                        </ion-item>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    
+    
+    </ion-grid>
+   
+</ion-content>

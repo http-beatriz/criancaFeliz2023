@@ -1,0 +1,91 @@
+
+
+
+.user-avatar {
+    border-radius: 100%;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    background: #F3F2F2;
+
+    ion-img {
+        --size: 100%;
+        --aspect-ratio: 1/1;
+        width: var(--size);
+        height: calc(var(--size) / var(--aspect-ratio))
+    }
+
+    figcaption {
+        text-align: center;
+        padding: 5px 0;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(245, 245, 245, .5);
+        display: block;
+
+        ion-icon {
+            font-size: 28px;
+        }
+    }
+}
+
+ion-button {
+    span {
+        padding: 10px 0;
+        display: block;
+    }
+    &.btn-avatar {
+        ion-icon {
+            color: #808181;
+            margin: 0 auto;
+            clear: both;
+            display: block;
+        }
+        span {
+            clear: both;
+            margin: 20px 0!important;
+        }
+        --color: #808181;
+        --color-hover: #808181;
+        --size: 100%;
+        --aspect-ratio: 1;
+        min-height: 125px;
+        min-width: 125px;
+        --width: var(--size);
+        --height: calc(var(--size) / var(--aspect-ratio));
+        --border-radius: 100% !important;
+        --background: #F3F2F2!important;
+        --background-hover: #F3F2F2;
+    }
+
+   
+
+
+    
+
+}
+
+.container {
+    position: relative;
+    width: 95%; /* The size you want */
+  }
+  .container:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%; /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
+  }
+  
+  .container img {
+    position: absolute; /* Take your picture out of the flow */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; /* Make the picture taking the size of it's parent */
+    width: 100%; /* This if for the object-fit */
+    height: 80%; /* This if for the object-fit */
+    object-fit: cover; /* Equivalent of the background-size: cover; of a background-image */
+    object-position: center;
+  }

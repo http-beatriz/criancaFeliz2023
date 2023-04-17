@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Seleção de Município</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-img src="/assets/images/logo-conecta-cidadao.png"></ion-img>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <form>
+            <ion-select required  [(ngModel)]="estado" (ionChange)="listarMunicipios()" name="estado" size="full" interface="action-sheet" placeholder="Selecione o Estado">
+              <ion-select-option  *ngFor="let item of listaestado " [value]="item">  {{item.descricao}}
+              </ion-select-option>
+
+
+            </ion-select>
+            <ion-select required  [(ngModel)]="municipio"  name="municipio" size="full" interface="action-sheet" placeholder="Selecione o Município">
+              <ion-select-option  *ngFor="let item of listaMunicipios " [value]="item">  {{item.nomeMunicipio}}
+              </ion-select-option>
+            </ion-select>
+            <ion-row>
+              <ion-col>
+                <ion-button type="submit" color="secondary" expand="block" (click)="seleciona()">Entrar</ion-button>
+              </ion-col>
+            </ion-row>
+          </form>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </div>
+</ion-content>

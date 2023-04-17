@@ -1,0 +1,17 @@
+[
+    {
+        "nome": "Sobre o Aplicativo",
+        "icone": "phone-portrait",
+        "link": "/sobre-o-aplicativo"
+    },
+    {
+        "nome": "Sobre o Desenvolvedor",
+        "icone": "code",
+        "link": "/sobre-o-desenvolvedor"
+    },
+    {
+        "nome": "Sair",
+        "icone": "power",
+        "link": "/login"
+    }
+]

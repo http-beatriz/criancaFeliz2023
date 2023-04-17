@@ -1,0 +1,283 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import "animate.css";
+@import "../node_modules/animate.css/animate.min.css";
+@import "~leaflet/dist/leaflet.css";
+
+@font-face {   
+    font-family: 'Open Sans', sans-serif;
+    src: url('./assets/fonts/OpenSans-Regular.ttf');
+}
+@font-face {   
+    font-family: 'Open Sans', sans-serif;
+    src: url('./assets/fonts/OpenSans-Bold.ttf');
+}
+
+@font-face {   
+    font-family: 'Open Sans', sans-serif;
+    src: url('./assets/fonts/OpenSans-SemiBold.ttf');
+}
+
+ion-icon{
+    display: inline-block;
+    vertical-align: middle!important;
+}
+ion-content {
+    font-size: 17px;
+    font-family: 'Open Sans', sans-serif;
+    --background: #F0F0F0;
+
+    .scroll-content {
+        min-height: 100vh !important;
+    }
+    // heading
+    h1, h2 {
+        font-weight: 700;
+        font-size: 20px;
+        margin-top: 10px;
+    }
+    
+    // cards
+    ion-card {
+        border-radius: 16px;
+        box-shadow: none;
+        margin: 0;
+        
+        ion-card-header {
+            padding: 0px 16px;
+        }
+
+        ion-card-title, ion-card-subtitle {
+            font-size: 17px;
+        }
+        ion-card-title {
+            color: #EF7752;
+        }
+        ion-card-subtitle {
+            color: #000;
+            text-transform: none;
+            font-weight: normal;
+            padding-bottom: 0!important;
+        }
+        ion-icon {
+            color: #808181;
+            font-size: 20px;
+        }
+    }
+}
+
+/* Header */
+ion-header {
+    background-color: rgba(255, 255 ,255, 0);
+    &::after {
+        background-image: none!important;
+    }
+}
+
+ion-header {
+    background: #F0F0F0;
+    ion-toolbar:not(.menu-toolbar) {
+        color: white;
+        --background: #34ADC6;
+        border-radius: 0 0 16px 16px;
+        
+        ion-icon, ion-button {
+            --color: var(--ion-color-light)!important;
+        }
+    }
+}
+
+/* Pages */
+app-selecao-municipio, app-login, app-sobre-o-aplicativo, app-sobre-o-desenvolvedor, app-notificacoes, app-notificacao {
+    ion-content {
+        --background: #fff;
+    }
+}
+
+ion-menu {
+    background: #fff!important;
+}
+
+app-splash, app-selecao-municipio, app-login {
+
+    ion-content {
+        > div {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    ion-header {
+        display: none;
+    }
+    ion-img {
+        height: 107px;
+        width: auto;
+    }
+}
+
+app-splash {
+    ion-content {
+        --background: url('./assets/images/splash-left.svg') left bottom no-repeat, url('./assets/images/splash-right.svg') right top no-repeat;
+    }
+}
+
+.menu-toolbar {
+    --background: #F1F0F0!important;
+}
+
+/* Componentes */
+ion-button {
+    --border-radius: 16px;
+    --ripple-color: transparent;
+}
+
+ion-select {
+    --width: 100%;
+}
+
+input {
+    --margin-bottom: 20px;
+}
+
+ion-item {
+    width: 100%!important;
+    --inner-padding-start: 0;
+    --inner-padding-end: 0;
+}
+
+/* Toasts */
+.toast-button {
+    color: var(--ion-color-primary);
+    text-transform: none;
+    font-size: 17px;
+    text-align: left;
+    white-space: pre-wrap!important;
+    --padding: 16px 8px;
+    --background: #D7EFF4;
+    --box-shadow: 0;
+    --background-hover: #D7EFF4;
+    
+    span {
+        line-height: 1.2!important;
+        padding: 20px!important;
+    }
+}
+
+ion-toast.custom-toast {
+    --background: #F4F4FA;
+    --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+    --color: #4b4a50;
+}
+    
+ion-toast.custom-toast::part(message) {
+    font-style: italic;
+}
+
+ion-toast.custom-toast::part(button) {
+    border-left: 1px solid #d2d2d2;
+    color: #030207;
+    font-size: 15px;
+}
+
+.profile-alert {   
+    height: auto;
+    --height: auto;
+    .alert-wrapper {
+        // --height: 90vh !important;
+        // --min-height: 90vh !important;
+        // --max-height: 90vh !important;
+        --min-width: 90vw !important;
+    }
+    .alert-message {
+        // --height: 90vh !important;
+        // --min-height: 90vh !important;
+        // --max-height: 90vh !important;
+        // --min-width: 90vw !important;
+    }
+}
+.force-height {
+    --min-height: 90vh;
+    --clear:both !important;
+}
+.agendamento-alert {
+    line-height: 1.2;
+    text-align: left!important;
+
+    ion-label {
+        color: var(--ion-color-secondary);
+        font-weight: bold;
+    }
+    ion-text {
+        p {
+            margin: 0 0 8px;
+            padding: 0;
+            display: inline-block;
+        }
+    }
+}
+.logo, .municipio > * {
+    height: 112px;
+    display: flex!important;
+    align-content: center!important;
+    align-items: center!important;
+}
+.logo {
+    padding: 0 30px;
+    &::after {
+        content: '';
+        height: 50px;
+        width: 1px;
+        background: #b5b5b5;
+        display: block;
+        position: absolute;
+        top: 30%;
+        right: 0;
+    }
+}
+ion-alert {
+    * {
+        font-size: 17px;
+    }
+    ion-label {
+        color: orange;
+        clear: both;
+    }
+    &.agendamento-alert {
+        
+        .alert-wrapper {
+            width: 90%;
+            min-width: 90%;
+            max-width: 90%;
+        }
+    }
+}
+ion-datetime-button {
+        padding: 0 0 20px;   
+}

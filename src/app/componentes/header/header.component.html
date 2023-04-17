@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar class="ion-no-border">
+    <ion-buttons slot="start">
+
+      <ion-back-button color="light" defaultHref="/" text=""></ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center" style = "margin-left: 50px;">{{title}}</ion-title>
+    <ion-buttons slot="end">
+
+
+      <ion-button routerLink="/notificacoes">
+        <!-- style="color: {{variavel}}" > pega as cores indicadas/validadas na variavel (arquivo.ts)-->
+        <ion-icon slot="icon-only" name="notifications" style="color: {{cor}}"></ion-icon>
+      </ion-button>
+    <ion-button>
+        <ion-img src="{{logo}}" style="width:30px;height: 30px;"></ion-img>
+      </ion-button>
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<!-- <ion-menu-button color="light" menu="main-content" side="end" auto-hide="false"> </ion-menu-button>-->

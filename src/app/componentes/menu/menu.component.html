@@ -1,0 +1,75 @@
+<ion-menu menuId="main-content" contentId="main-content">
+<ion-header class="ion-no-border">
+  <ion-toolbar class="menu-toolbar">
+    <ion-buttons slot="end">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon color="dark" name="close"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+  <ion-content class="ion-padding">
+    <ion-menu-toggle>
+      <ion-grid>
+        <ion-row class="logos-menu">
+          <ion-col class="vertical-align-content logo">
+            <ion-img src="/assets/images/logo-conecta-cidadao.png"></ion-img>
+          </ion-col>
+          <ion-col class="vertical-align-content municipio">
+            <ion-img src="{{logo}}"></ion-img>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+   <ion-list>
+      <ion-item *ngFor="let item of componentes | async" [routerLink]="item.link" color="none" lines="none" detail="false">
+        <ion-icon color="primary" size="small" [name]="item.icone" slot="start"></ion-icon>
+        <ion-label>{{item.nome}}</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-grid class="social">
+      <ion-row>
+        <ion-col size="1">
+          <a href="https://www.facebook.com/profile.php?id=100084312726430" target="_blank"><ion-icon color="primary" name="logo-facebook"></ion-icon></a>
+        </ion-col>
+        <ion-col size="1">
+            <a href="https://www.instagram.com/conectasuas/" target="_blank"><ion-icon color="primary" name="logo-instagram"></ion-icon></a>
+        </ion-col>
+        <ion-col size="1">
+            <a href="https://twitter.com/conectasuas" target="_blank"><ion-icon color="primary" name="logo-twitter"></ion-icon></a>
+      </ion-col>
+      <ion-col size="1">
+        <a href="https://www.youtube.com/@conectasuas" target="_blank"><ion-icon color="primary" name="logo-youtube"></ion-icon></a>
+  </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col>
+              <ion-label>@ConectaSuas</ion-label>
+          </ion-col>
+      </ion-row>
+      <ion-row class="virtual-vision">
+        <ion-col>
+          <a href="http://www.vvision.com.br" target="_blank"><ion-icon name="custom-virtual-vision"></ion-icon></a>
+          <ion-text><p class="copyright">Versão 2.4.2</p></ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-menu-toggle>
+  </ion-content>
+</ion-menu>
+
+<!-- <div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    Tap the button in the toolbar to open the menu.
+  </ion-content>
+</div> -->

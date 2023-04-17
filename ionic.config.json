@@ -1,0 +1,8 @@
+{
+  "name": "conecta-cidadao",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+  
+}

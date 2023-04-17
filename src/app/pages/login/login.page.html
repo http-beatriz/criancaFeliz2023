@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title title="Seleção Município"></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <style>
+    ion-label {
+      color: var(--ion-color-primary) !important;
+      ;
+    }
+
+    .entrada {
+      border-radius: var(--border-radius);
+      padding-left: var(--padding-start);
+      padding-right: var(--padding-end);
+      padding-top: var(--padding-top);
+      padding-bottom: var(--padding-bottom);
+      font-family: inherit;
+      font-size: inherit;
+      font-style: inherit;
+      font-weight: inherit;
+      letter-spacing: inherit;
+      text-decoration: inherit;
+
+      text-indent: inherit;
+      text-overflow: inherit;
+      text-transform: inherit;
+      text-align: inherit;
+      white-space: inherit;
+      color: inherit;
+      display: inline-block;
+      -ms-flex: 1;
+      flex: 1;
+      width: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      border: 0;
+      outline: none;
+      background: transparent;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+
+
+      padding-left: unset;
+      padding-right: unset;
+      -webkit-padding-start: var(--padding-start);
+      padding-inline-start: var(--padding-start);
+      -webkit-padding-end: var(--padding-end);
+      padding-inline-end: var(--padding-end);
+
+      margin-top: 35px;
+      margin-left: -15px;
+      margin-bottom: 10px;
+
+    }
+  </style>
+
+
+  <div>
+    <ion-grid>
+      <ion-row class="logos-menu">
+        <ion-col class="vertical-align-content logo">
+          <ion-img src="/assets/images/gravida-icon.png"></ion-img>
+        </ion-col>
+        <ion-col class="vertical-align-content municipio">
+          <ion-img src="{{logo}}"></ion-img>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item lines="full">
+            <!-- Ion input pra manter o formato-->
+            <ion-input style="display: none;" type="tel" mask="000.000.000-99"></ion-input>
+            <!-- cpf com mask -->
+            <ion-label position="floating" style="    color: var(--ion-color-primary) !important;;">CPF</ion-label>
+
+            <input type="text" class="entrada" mask="000.000.000-00" [(ngModel)]="cpf"
+              [dropSpecialCharacters]="false" />
+
+          </ion-item>
+          <!-- data de nascimento com mask-->
+          <ion-item lines="full">
+            <ion-label position="floating">Senha</ion-label>
+
+            <input type="password" class="entrada" [(ngModel)]="senha" />
+
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="secondary" expand="block" (click)="loginForm()"
+            mask="**/**/****">Entrar</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button type="submit" color="primary" expand="block" (click)="navegacao()">Alterar o
+            Município</ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </div>
+</ion-content>

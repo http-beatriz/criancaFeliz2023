@@ -1,0 +1,871 @@
+function replaceAll(palavra,de, para){
+    var str = palavra;
+    var pos = str.indexOf(de);
+    while (pos > -1){
+		str = str.replace(de, para);
+		pos = str.indexOf(de);
+	}
+    return (str);
+} 
+
+// codigo gerado automaticamente pelo mentor transacao 1554
+
+import {Mentor}  from '../models/Mentor'
+
+	export class formatadoLista{
+		public de:number;
+		public para :String;
+		constructor(de:number,para:String){
+			this.de = de;
+			this.para = para;
+		}
+	}
+	export class ionicClasseBase{
+		public ionicIndiceRepositorio: number;
+		public ionicFlagConcluido: boolean
+		public ionicFlagNovo: boolean
+	}
+
+export class DomicilioCras extends ionicClasseBase {
+
+	static criaColecao(lista: any){
+		if(lista!=null){
+			var retorno = new Array();
+			for(let x = 0;x<lista.length;x++)
+				retorno.push(new DomicilioCras(lista[x]));
+			return retorno;
+		}
+	}
+
+		public codigo : number ;
+		get codigoSimNao(){ if (this.codigo == 1) return true; else return false;}
+		set codigoSimNao(flag){ if (flag) this.codigo = 1; else this.codigo = 0;}
+		get codigoFormatado(): String {
+			return  Mentor.moedaToString(this.codigo)
+		}
+		set codigoFormatado(valor: String) {
+			this.codigo =  Mentor.stringToMoeda(valor);
+		}
+
+		public bairro : String ;
+
+		public celular : String ;
+
+		public cep : String ;
+
+		public complemento : String ;
+
+		public endereco : String ;
+
+		public municipio : String ;
+
+		public numero : String ;
+
+		public ponto_referencia : String ;
+
+		public telefone : String ;
+
+		public tipo_logradouro : String ;
+		public uf : Estado ;
+		public abrigo : Cras ;
+		public condicoesHabitacionais : CondicoesHabitacionais[] ;
+		public responsavel : AssociadoCras ;
+
+		constructor(objeto:any){
+		super();
+		if(objeto != null){
+if(typeof(objeto.ionicFlagNovo) == 'undefined') this.ionicFlagNovo = false; else this.ionicFlagNovo = objeto.ionicFlagNovo;
+			 this.codigo = objeto.codigo;
+			 this.bairro = objeto.bairro;
+			 this.celular = objeto.celular;
+			 this.cep = objeto.cep;
+			 this.complemento = objeto.complemento;
+			 this.endereco = objeto.endereco;
+			 this.municipio = objeto.municipio;
+			 this.numero = objeto.numero;
+			 this.ponto_referencia = objeto.ponto_referencia;
+			 this.telefone = objeto.telefone;
+			 this.tipo_logradouro = objeto.tipo_logradouro;
+
+			if(objeto.uf != null)
+				this.uf = new Estado(objeto.uf);
+
+			if(objeto.abrigo != null)
+				this.abrigo = new Cras(objeto.abrigo);
+
+			if(objeto.condicoesHabitacionais != null){
+				this.condicoesHabitacionais = new Array();
+				for(let x:number = 0;x<objeto.condicoesHabitacionais.length;x++)
+				this.condicoesHabitacionais.push(new CondicoesHabitacionais(objeto.condicoesHabitacionais[x]))
+			}
+
+			if(objeto.responsavel != null)
+				this.responsavel = new AssociadoCras(objeto.responsavel);
+
+		}
+		else{
+this.ionicFlagNovo = true;
+			 this.codigo = 0;
+				this.uf = new Estado(null);
+				this.abrigo = new Cras(null);
+				this.responsavel = new AssociadoCras(null);
+
+		}
+
+
+		}
+
+}
+
+
+export class Estado extends ionicClasseBase {
+
+	static criaColecao(lista: any){
+		if(lista!=null){
+			var retorno = new Array();
+			for(let x = 0;x<lista.length;x++)
+				retorno.push(new Estado(lista[x]));
+			return retorno;
+		}
+	}
+
+		constructor(objeto:any){
+		super();
+		if(objeto != null){
+if(typeof(objeto.ionicFlagNovo) == 'undefined') this.ionicFlagNovo = false; else this.ionicFlagNovo = objeto.ionicFlagNovo;
+
+		}
+		else{
+this.ionicFlagNovo = true;
+
+		}
+
+
+		}
+
+}
+
+
+export class Cras extends ionicClasseBase {
+
+	static criaColecao(lista: any){
+		if(lista!=null){
+			var retorno = new Array();
+			for(let x = 0;x<lista.length;x++)
+				retorno.push(new Cras(lista[x]));
+			return retorno;
+		}
+	}
+
+		constructor(objeto:any){
+		super();
+		if(objeto != null){
+if(typeof(objeto.ionicFlagNovo) == 'undefined') this.ionicFlagNovo = false; else this.ionicFlagNovo = objeto.ionicFlagNovo;
+
+		}
+		else{
+this.ionicFlagNovo = true;
+
+		}
+
+
+		}
+
+}
+
+
+export class CondicoesHabitacionais extends ionicClasseBase {
+
+	static criaColecao(lista: any){
+		if(lista!=null){
+			var retorno = new Array();
+			for(let x = 0;x<lista.length;x++)
+				retorno.push(new CondicoesHabitacionais(lista[x]));
+			return retorno;
+		}
+	}
+
+		public codigo : number ;
+		get codigoSimNao(){ if (this.codigo == 1) return true; else return false;}
+		set codigoSimNao(flag){ if (flag) this.codigo = 1; else this.codigo = 0;}
+		get codigoFormatado(): String {
+			return  Mentor.moedaToString(this.codigo)
+		}
+		set codigoFormatado(valor: String) {
+			this.codigo =  Mentor.stringToMoeda(valor);
+		}
+
+		public acessoEnergiaEletrica : number ;
+		get acessoEnergiaEletricaSimNao(){ if (this.acessoEnergiaEletrica == 1) return true; else return false;}
+		set acessoEnergiaEletricaSimNao(flag){ if (flag) this.acessoEnergiaEletrica = 1; else this.acessoEnergiaEletrica = 0;}
+		public acessoEnergiaEletricaFormatadoLista : formatadoLista[] = new Array();
+
+
+		public aguaCanalizada : number ;
+		get aguaCanalizadaSimNao(){ if (this.aguaCanalizada == 1) return true; else return false;}
+		set aguaCanalizadaSimNao(flag){ if (flag) this.aguaCanalizada = 1; else this.aguaCanalizada = 0;}
+		public aguaCanalizadaFormatadoLista : formatadoLista[] = new Array();
+
+
+		public areaRisco : number ;
+		get areaRiscoSimNao(){ if (this.areaRisco == 1) return true; else return false;}
+		set areaRiscoSimNao(flag){ if (flag) this.areaRisco = 1; else this.areaRisco = 0;}
+		public areaRiscoFormatadoLista : formatadoLista[] = new Array();
+
+
+		public areaViolencia : number ;
+		get areaViolenciaSimNao(){ if (this.areaViolencia == 1) return true; else return false;}
+		set areaViolenciaSimNao(flag){ if (flag) this.areaViolencia = 1; else this.areaViolencia = 0;}
+		public areaViolenciaFormatadoLista : formatadoLista[] = new Array();
+
+
+		public coletaLixo : number ;
+		get coletaLixoSimNao(){ if (this.coletaLixo == 1) return true; else return false;}
+		set coletaLixoSimNao(flag){ if (flag) this.coletaLixo = 1; else this.coletaLixo = 0;}
+		public coletaLixoFormatadoLista : formatadoLista[] = new Array();
+
+
+		public teste_ : String = "";
+		public get teste(){
+			return Mentor.moedaToString(this.numeroComodos);// this.teste_;
+		}
+
+		public set teste(valor: String){
+			this.teste_ = valor;
+
+			if(replaceAll(valor," ","") != "")
+				this.numeroComodos = Mentor.stringToMoeda(this.teste_);
+		}
+
+		public comodosDormitorios : number ;
+		get comodosDormitoriosSimNao(){ if (this.comodosDormitorios == 1) return true; else return false;}
+		set comodosDormitoriosSimNao(flag){ if (flag) this.comodosDormitorios = 1; else this.comodosDormitorios = 0;}
+		get comodosDormitoriosFormatado(): String {
+			return  Mentor.moedaToString(this.comodosDormitorios)
+		}
+		set comodosDormitoriosFormatado(valor: String) {
+			this.comodosDormitorios =  Mentor.stringToMoeda(valor);
+		}
+
+		public dificilAcesso : number ;
+		get dificilAcessoSimNao(){ if (this.dificilAcesso == 1) return true; else return false;}
+		set dificilAcessoSimNao(flag){ if (flag) this.dificilAcesso = 1; else this.dificilAcesso = 0;}
+		public dificilAcessoFormatadoLista : formatadoLista[] = new Array();
+
+
+		public escoamentoSanitario : number ;
+		get escoamentoSanitarioSimNao(){ if (this.escoamentoSanitario == 1) return true; else return false;}
+		set escoamentoSanitarioSimNao(flag){ if (flag) this.escoamentoSanitario = 1; else this.escoamentoSanitario = 0;}
+		public escoamentoSanitarioFormatadoLista : formatadoLista[] = new Array();
+
+
+		public formaAbastecimento : number ;
+		get formaAbastecimentoSimNao(){ if (this.formaAbastecimento == 1) return true; else return false;}
+		set formaAbastecimentoSimNao(flag){ if (flag) this.formaAbastecimento = 1; else this.formaAbastecimento = 0;}
+		public formaAbastecimentoFormatadoLista : formatadoLista[] = new Array();
+
+
+		public materialParedesExternas : number ;
+		get materialParedesExternasSimNao(){ if (this.materialParedesExternas == 1) return true; else return false;}
+		set materialParedesExternasSimNao(flag){ if (flag) this.materialParedesExternas = 1; else this.materialParedesExternas = 0;}
+		public materialParedesExternasFormatadoLista : formatadoLista[] = new Array();
+
+
+		public numeroComodos : number ;
+		get numeroComodosSimNao(){ if (this.numeroComodos == 1) return true; else return false;}
+		set numeroComodosSimNao(flag){ if (flag) this.numeroComodos = 1; else this.numeroComodos = 0;}
+		get numeroComodosFormatado(): String {
+			return  Mentor.moedaToString(this.numeroComodos)
+		}
+		set numeroComodosFormatado(valor: String) {
+			if(replaceAll(valor," ","") != "")
+				this.numeroComodos = Mentor.stringToMoeda(valor);
+		//	this.numeroComodos =  Mentor.stringToMoeda(valor);
+		}
+
+		public pessoasDormitorio : number ;
+		get pessoasDormitorioSimNao(){ if (this.pessoasDormitorio == 1) return true; else return false;}
+		set pessoasDormitorioSimNao(flag){ if (flag) this.pessoasDormitorio = 1; else this.pessoasDormitorio = 0;}
+		get pessoasDormitorioFormatado(): String {
+			return  Mentor.moedaToString(this.pessoasDormitorio)
+		}
+		set pessoasDormitorioFormatado(valor: String) {
+			this.pessoasDormitorio =  Mentor.stringToMoeda(valor);
+		}
+
+		public possuiAcessibilidade : number ;
+		get possuiAcessibilidadeSimNao(){ if (this.possuiAcessibilidade == 1) return true; else return false;}
+		set possuiAcessibilidadeSimNao(flag){ if (flag) this.possuiAcessibilidade = 1; else this.possuiAcessibilidade = 0;}
+		public possuiAcessibilidadeFormatadoLista : formatadoLista[] = new Array();
+
+
+		public tipoResidencia : number ;
+		get tipoResidenciaSimNao(){ if (this.tipoResidencia == 1) return true; else return false;}
+		set tipoResidenciaSimNao(flag){ if (flag) this.tipoResidencia = 1; else this.tipoResidencia = 0;}
+		public tipoResidenciaFormatadoLista : formatadoLista[] = new Array();
+
+
+		public dataAnotacao : Date ;
+		public dataAnotacao_ : String = "";
+		get dataAnotacaoFormatado(): String {
+			if(replaceAll(this.dataAnotacao_,"_","").length < 10 )
+				return this.dataAnotacao_;
+			else
+				return  Mentor.dateToString(this.dataAnotacao)
+		}
+		set dataAnotacaoFormatado(valor: String) {
+			this.dataAnotacao_ = valor;
+			if(replaceAll(this.dataAnotacao_,"_","").length ==10)
+				this.dataAnotacao =  Mentor.stringToDate(valor);
+		}
+
+		get dataAnotacaoFormatadoIso(): String {
+			return  Mentor.dateToStringIso(this.dataAnotacao)
+		}
+		set dataAnotacaoFormatadoIso(valor: String) {
+			this.dataAnotacao =  Mentor.strigToDateIso(valor);
+		}
+
+		public flagTelefone : number ;
+		get flagTelefoneSimNao(){ if (this.flagTelefone == 1) return true; else return false;}
+		set flagTelefoneSimNao(flag){ if (flag) this.flagTelefone = 1; else this.flagTelefone = 0;}
+		public flagTelefoneFormatadoLista : formatadoLista[] = new Array();
+
+
+		public flagLiquidificador : number ;
+		get flagLiquidificadorSimNao(){ if (this.flagLiquidificador == 1) return true; else return false;}
+		set flagLiquidificadorSimNao(flag){ if (flag) this.flagLiquidificador = 1; else this.flagLiquidificador = 0;}
+		public flagLiquidificadorFormatadoLista : formatadoLista[] = new Array();
+
+
+		public flagGeladeira : number ;
+		get flagGeladeiraSimNao(){ if (this.flagGeladeira == 1) return true; else return false;}
+		set flagGeladeiraSimNao(flag){ if (flag) this.flagGeladeira = 1; else this.flagGeladeira = 0;}
+		public flagGeladeiraFormatadoLista : formatadoLista[] = new Array();
+
+
+		public flagFogao : number ;
+		get flagFogaoSimNao(){ if (this.flagFogao == 1) return true; else return false;}
+		set flagFogaoSimNao(flag){ if (flag) this.flagFogao = 1; else this.flagFogao = 0;}
+		public flagFogaoFormatadoLista : formatadoLista[] = new Array();
+
+
+		public flagRadio : number ;
+		get flagRadioSimNao(){ if (this.flagRadio == 1) return true; else return false;}
+		set flagRadioSimNao(flag){ if (flag) this.flagRadio = 1; else this.flagRadio = 0;}
+		public flagRadioFormatadoLista : formatadoLista[] = new Array();
+
+
+		public flagTv : number ;
+		get flagTvSimNao(){ if (this.flagTv == 1) return true; else return false;}
+		set flagTvSimNao(flag){ if (flag) this.flagTv = 1; else this.flagTv = 0;}
+		public flagTvFormatadoLista : formatadoLista[] = new Array();
+
+
+		public flagBicicleta : number ;
+		get flagBicicletaSimNao(){ if (this.flagBicicleta == 1) return true; else return false;}
+		set flagBicicletaSimNao(flag){ if (flag) this.flagBicicleta = 1; else this.flagBicicleta = 0;}
+		public flagBicicletaFormatadoLista : formatadoLista[] = new Array();
+
+
+		public flagAparelhoSom : number ;
+		get flagAparelhoSomSimNao(){ if (this.flagAparelhoSom == 1) return true; else return false;}
+		set flagAparelhoSomSimNao(flag){ if (flag) this.flagAparelhoSom = 1; else this.flagAparelhoSom = 0;}
+		public flagAparelhoSomFormatadoLista : formatadoLista[] = new Array();
+
+
+		public flagMaquinaCostura : number ;
+		get flagMaquinaCosturaSimNao(){ if (this.flagMaquinaCostura == 1) return true; else return false;}
+		set flagMaquinaCosturaSimNao(flag){ if (flag) this.flagMaquinaCostura = 1; else this.flagMaquinaCostura = 0;}
+		public flagMaquinaCosturaFormatadoLista : formatadoLista[] = new Array();
+
+
+		public descricaoOutros : String ;
+
+		constructor(objeto:any){
+		super();
+		if(objeto != null){
+if(typeof(objeto.ionicFlagNovo) == 'undefined') this.ionicFlagNovo = false; else this.ionicFlagNovo = objeto.ionicFlagNovo;
+			 this.codigo = objeto.codigo;
+			 this.acessoEnergiaEletrica = objeto.acessoEnergiaEletrica;
+			 this.aguaCanalizada = objeto.aguaCanalizada;
+			 this.areaRisco = objeto.areaRisco;
+			 this.areaViolencia = objeto.areaViolencia;
+			 this.coletaLixo = objeto.coletaLixo;
+			 this.comodosDormitorios = objeto.comodosDormitorios;
+			 this.dificilAcesso = objeto.dificilAcesso;
+			 this.escoamentoSanitario = objeto.escoamentoSanitario;
+			 this.formaAbastecimento = objeto.formaAbastecimento;
+			 this.materialParedesExternas = objeto.materialParedesExternas;
+			 this.numeroComodos = objeto.numeroComodos;
+			 this.pessoasDormitorio = objeto.pessoasDormitorio;
+			 this.possuiAcessibilidade = objeto.possuiAcessibilidade;
+			 this.tipoResidencia = objeto.tipoResidencia;
+			 if(objeto.dataAnotacaoFormatado != null){
+				this.dataAnotacao = Mentor.stringToDate(objeto.dataAnotacaoFormatado);
+				this.dataAnotacao_ = objeto.dataAnotacaoFormatado;
+			 }
+			 else
+				 this.dataAnotacao = objeto.dataAnotacao;
+			 this.flagTelefone = objeto.flagTelefone;
+			 this.flagLiquidificador = objeto.flagLiquidificador;
+			 this.flagGeladeira = objeto.flagGeladeira;
+			 this.flagFogao = objeto.flagFogao;
+			 this.flagRadio = objeto.flagRadio;
+			 this.flagTv = objeto.flagTv;
+			 this.flagBicicleta = objeto.flagBicicleta;
+			 this.flagAparelhoSom = objeto.flagAparelhoSom;
+			 this.flagMaquinaCostura = objeto.flagMaquinaCostura;
+			 this.descricaoOutros = objeto.descricaoOutros;
+
+		}
+		else{
+this.ionicFlagNovo = true;
+			 this.codigo = 0;
+			 this.acessoEnergiaEletrica = 0;
+			 this.aguaCanalizada = 0;
+			 this.areaRisco = 0;
+			 this.areaViolencia = 0;
+			 this.coletaLixo = 0;
+			 this.comodosDormitorios = 0;
+			 this.dificilAcesso = 0;
+			 this.escoamentoSanitario = 0;
+			 this.formaAbastecimento = 0;
+			 this.materialParedesExternas = 0;
+			 this.numeroComodos = 0;
+			 this.pessoasDormitorio = 0;
+			 this.possuiAcessibilidade = 0;
+			 this.tipoResidencia = 0;
+			 this.flagTelefone = 0;
+			 this.flagLiquidificador = 0;
+			 this.flagGeladeira = 0;
+			 this.flagFogao = 0;
+			 this.flagRadio = 0;
+			 this.flagTv = 0;
+			 this.flagBicicleta = 0;
+			 this.flagAparelhoSom = 0;
+			 this.flagMaquinaCostura = 0;
+
+		}
+
+			this.acessoEnergiaEletricaFormatadoLista.push(new formatadoLista(1,"Sim, com Medidor próprio"));
+			this.acessoEnergiaEletricaFormatadoLista.push(new formatadoLista(2,"Sim, com Medidor compartilhado"));
+			this.acessoEnergiaEletricaFormatadoLista.push(new formatadoLista(3,"Sim, sem medidor"));
+			this.acessoEnergiaEletricaFormatadoLista.push(new formatadoLista(4,"Não possui energia elétrica no domicílio"));
+			this.acessoEnergiaEletricaFormatadoLista.push(new formatadoLista(5,"Outros"));
+			this.aguaCanalizadaFormatadoLista.push(new formatadoLista(1,"Sim"));
+			this.aguaCanalizadaFormatadoLista.push(new formatadoLista(2,"Não"));
+			this.areaRiscoFormatadoLista.push(new formatadoLista(1,"Sim"));
+			this.areaRiscoFormatadoLista.push(new formatadoLista(2,"Não"));
+			this.areaViolenciaFormatadoLista.push(new formatadoLista(1,"Sim"));
+			this.areaViolenciaFormatadoLista.push(new formatadoLista(2,"Não"));
+			this.coletaLixoFormatadoLista.push(new formatadoLista(1,"Sim, coleta direta"));
+			this.coletaLixoFormatadoLista.push(new formatadoLista(2,"Sim, coleta indireta"));
+			this.coletaLixoFormatadoLista.push(new formatadoLista(3,"Não possui coleta"));
+			this.dificilAcessoFormatadoLista.push(new formatadoLista(1,"Sim"));
+			this.dificilAcessoFormatadoLista.push(new formatadoLista(2,"Não"));
+			this.escoamentoSanitarioFormatadoLista.push(new formatadoLista(1,"Rede coletora de esgoto ou pluvial"));
+			this.escoamentoSanitarioFormatadoLista.push(new formatadoLista(2,"Fossa séptica"));
+			this.escoamentoSanitarioFormatadoLista.push(new formatadoLista(3,"Fossa rudimentar"));
+			this.escoamentoSanitarioFormatadoLista.push(new formatadoLista(4,"Direto para vala, rio, lago ou mar"));
+			this.escoamentoSanitarioFormatadoLista.push(new formatadoLista(5,"Domicílio sem banheiro"));
+			this.escoamentoSanitarioFormatadoLista.push(new formatadoLista(6,"Outros"));
+			this.formaAbastecimentoFormatadoLista.push(new formatadoLista(1,"Rede geral de distribuição"));
+			this.formaAbastecimentoFormatadoLista.push(new formatadoLista(2,"Poço ou nascente"));
+			this.formaAbastecimentoFormatadoLista.push(new formatadoLista(3,"Cisterna de captação de águas de chuva"));
+			this.formaAbastecimentoFormatadoLista.push(new formatadoLista(4,"Carro pipa"));
+			this.formaAbastecimentoFormatadoLista.push(new formatadoLista(5,"Outra forma"));
+			this.materialParedesExternasFormatadoLista.push(new formatadoLista(1,"Alvenaria ou madeira aparelhada"));
+			this.materialParedesExternasFormatadoLista.push(new formatadoLista(2,"Madeira aproveitada, taipa ou outros materiais precários"));
+			this.materialParedesExternasFormatadoLista.push(new formatadoLista(3,"Outros"));
+			this.possuiAcessibilidadeFormatadoLista.push(new formatadoLista(1,"Sim, tanto nos espaços internos como na comunicação com a rua"));
+			this.possuiAcessibilidadeFormatadoLista.push(new formatadoLista(2,"Sim, apenas nos espaços internos, mais possue “barreiras” na comunicação com a rua."));
+			this.possuiAcessibilidadeFormatadoLista.push(new formatadoLista(3,"Não possui condições de acessibilidade."));
+			this.tipoResidenciaFormatadoLista.push(new formatadoLista(1,"Própria"));
+			this.tipoResidenciaFormatadoLista.push(new formatadoLista(2,"Alugada"));
+			this.tipoResidenciaFormatadoLista.push(new formatadoLista(3,"Cedida"));
+			this.tipoResidenciaFormatadoLista.push(new formatadoLista(4,"Ocupada"));
+			this.tipoResidenciaFormatadoLista.push(new formatadoLista(5,"Outros"));
+			this.flagTelefoneFormatadoLista.push(new formatadoLista(0,"Não"));
+			this.flagTelefoneFormatadoLista.push(new formatadoLista(1,"Sim"));
+			this.flagLiquidificadorFormatadoLista.push(new formatadoLista(0,"Não"));
+			this.flagLiquidificadorFormatadoLista.push(new formatadoLista(1,"Sim"));
+			this.flagGeladeiraFormatadoLista.push(new formatadoLista(0,"Não"));
+			this.flagGeladeiraFormatadoLista.push(new formatadoLista(1,"Sim"));
+			this.flagFogaoFormatadoLista.push(new formatadoLista(0,"Não"));
+			this.flagFogaoFormatadoLista.push(new formatadoLista(1,"Sim"));
+			this.flagRadioFormatadoLista.push(new formatadoLista(0,"Não"));
+			this.flagRadioFormatadoLista.push(new formatadoLista(1,"Sim"));
+			this.flagTvFormatadoLista.push(new formatadoLista(0,"Não"));
+			this.flagTvFormatadoLista.push(new formatadoLista(1,"Sim"));
+			this.flagBicicletaFormatadoLista.push(new formatadoLista(0,"Não"));
+			this.flagBicicletaFormatadoLista.push(new formatadoLista(1,"Sim"));
+			this.flagAparelhoSomFormatadoLista.push(new formatadoLista(0,"Não"));
+			this.flagAparelhoSomFormatadoLista.push(new formatadoLista(1,"Sim"));
+			this.flagMaquinaCosturaFormatadoLista.push(new formatadoLista(0,"Não"));
+			this.flagMaquinaCosturaFormatadoLista.push(new formatadoLista(1,"Sim"));
+
+		}
+
+}
+
+
+export class Funcionarios extends ionicClasseBase {
+
+	static criaColecao(lista: any){
+		if(lista!=null){
+			var retorno = new Array();
+			for(let x = 0;x<lista.length;x++)
+				retorno.push(new Funcionarios(lista[x]));
+			return retorno;
+		}
+	}
+
+		public codigo : number ;
+		get codigoSimNao(){ if (this.codigo == 1) return true; else return false;}
+		set codigoSimNao(flag){ if (flag) this.codigo = 1; else this.codigo = 0;}
+		get codigoFormatado(): String {
+			return  Mentor.moedaToString(this.codigo)
+		}
+		set codigoFormatado(valor: String) {
+			this.codigo =  Mentor.stringToMoeda(valor);
+		}
+
+		public logi : String ;
+
+		public nome : String ;
+
+		public senha : String ;
+
+		public cpf : String ;
+
+		constructor(objeto:any){
+		super();
+		if(objeto != null){
+if(typeof(objeto.ionicFlagNovo) == 'undefined') this.ionicFlagNovo = false; else this.ionicFlagNovo = objeto.ionicFlagNovo;
+			 this.codigo = objeto.codigo;
+			 this.logi = objeto.logi;
+			 this.nome = objeto.nome;
+			 this.senha = objeto.senha;
+			 this.cpf = objeto.cpf;
+
+		}
+		else{
+this.ionicFlagNovo = true;
+			 this.codigo = 0;
+
+		}
+
+
+		}
+
+}
+
+
+export class AcompanhamentoDomCras extends ionicClasseBase {
+
+	static criaColecao(lista: any){
+		if(lista!=null){
+			var retorno = new Array();
+			for(let x = 0;x<lista.length;x++)
+				retorno.push(new AcompanhamentoDomCras(lista[x]));
+			return retorno;
+		}
+	}
+
+		public codigo : number ;
+		get codigoSimNao(){ if (this.codigo == 1) return true; else return false;}
+		set codigoSimNao(flag){ if (flag) this.codigo = 1; else this.codigo = 0;}
+		get codigoFormatado(): String {
+			return  Mentor.moedaToString(this.codigo)
+		}
+		set codigoFormatado(valor: String) {
+			this.codigo =  Mentor.stringToMoeda(valor);
+		}
+
+		public criacao : Date ;
+		get criacaoFormatado(): String {
+			return  Mentor.dateToString(this.criacao)
+		}
+		set criacaoFormatado(valor: String) {
+			this.criacao =  Mentor.stringToDate(valor);
+		}
+
+		public fim : Date ;
+		get fimFormatado(): String {
+			return  Mentor.dateToString(this.fim)
+		}
+		set fimFormatado(valor: String) {
+			this.fim =  Mentor.stringToDate(valor);
+		}
+
+		public cancelada : number ;
+		get canceladaSimNao(){ if (this.cancelada == 1) return true; else return false;}
+		set canceladaSimNao(flag){ if (flag) this.cancelada = 1; else this.cancelada = 0;}
+		get canceladaFormatado(): String {
+			return  Mentor.moedaToString(this.cancelada)
+		}
+		set canceladaFormatado(valor: String) {
+			this.cancelada =  Mentor.stringToMoeda(valor);
+		}
+
+		public observacao : String ;
+
+		public dataCadastro : Date ;
+		get dataCadastroFormatado(): String {
+			return  Mentor.dateToString(this.dataCadastro)
+		}
+		set dataCadastroFormatado(valor: String) {
+			this.dataCadastro =  Mentor.stringToDate(valor);
+		}
+
+		public dataVisitas : Date ;
+		get dataVisitasFormatado(): String {
+			return  Mentor.dateToString(this.dataVisitas)
+		}
+		set dataVisitasFormatado(valor: String) {
+			this.dataVisitas =  Mentor.stringToDate(valor);
+		}
+
+		public status : number ;
+		get statusSimNao(){ if (this.status == 1) return true; else return false;}
+		set statusSimNao(flag){ if (flag) this.status = 1; else this.status = 0;}
+		public statusFormatadoLista : formatadoLista[] = new Array();
+
+		public unidadeAtendimento : UnidadeAdministrativa ;
+		public visitas : VisitaAcompDomCras[] ;
+		public responsavel : Funcionarios ;
+
+		constructor(objeto:any){
+		super();
+		if(objeto != null){
+if(typeof(objeto.ionicFlagNovo) == 'undefined') this.ionicFlagNovo = false; else this.ionicFlagNovo = objeto.ionicFlagNovo;
+			 this.codigo = objeto.codigo;
+			 if(objeto.criacaoFormatado != null)
+				 this.criacao = Mentor.stringToDate(objeto.criacaoFormatado);
+			 else
+				 this.criacao = objeto.criacao;
+			 if(objeto.fimFormatado != null)
+				 this.fim = Mentor.stringToDate(objeto.fimFormatado);
+			 else
+				 this.fim = objeto.fim;
+			 this.cancelada = objeto.cancelada;
+			 this.observacao = objeto.observacao;
+			 if(objeto.dataCadastroFormatado != null)
+				 this.dataCadastro = Mentor.stringToDate(objeto.dataCadastroFormatado);
+			 else
+				 this.dataCadastro = objeto.dataCadastro;
+			 if(objeto.dataVisitasFormatado != null)
+				 this.dataVisitas = Mentor.stringToDate(objeto.dataVisitasFormatado);
+			 else
+				 this.dataVisitas = objeto.dataVisitas;
+			 this.status = objeto.status;
+
+			if(objeto.unidadeAtendimento != null)
+				this.unidadeAtendimento = new UnidadeAdministrativa(objeto.unidadeAtendimento);
+
+			if(objeto.visitas != null){
+				this.visitas = new Array();
+				for(let x:number = 0;x<objeto.visitas.length;x++)
+				this.visitas.push(new VisitaAcompDomCras(objeto.visitas[x]))
+			}
+
+			if(objeto.responsavel != null)
+				this.responsavel = new Funcionarios(objeto.responsavel);
+
+		}
+		else{
+this.ionicFlagNovo = true;
+			 this.codigo = 0;
+			 this.status = 0;
+				this.unidadeAtendimento = new UnidadeAdministrativa(null);
+				this.responsavel = new Funcionarios(null);
+
+		}
+
+			this.statusFormatadoLista.push(new formatadoLista(1,"Visitas Agendadas"));
+			this.statusFormatadoLista.push(new formatadoLista(2,"Visitas Realizadas"));
+			this.statusFormatadoLista.push(new formatadoLista(3,"Visitas Realizadas Parcialmente"));
+
+		}
+
+}
+
+
+export class UnidadeAdministrativa extends ionicClasseBase {
+
+	static criaColecao(lista: any){
+		if(lista!=null){
+			var retorno = new Array();
+			for(let x = 0;x<lista.length;x++)
+				retorno.push(new UnidadeAdministrativa(lista[x]));
+			return retorno;
+		}
+	}
+
+		public codigo : number ;
+		get codigoSimNao(){ if (this.codigo == 1) return true; else return false;}
+		set codigoSimNao(flag){ if (flag) this.codigo = 1; else this.codigo = 0;}
+		get codigoFormatado(): String {
+			return  Mentor.moedaToString(this.codigo)
+		}
+		set codigoFormatado(valor: String) {
+			this.codigo =  Mentor.stringToMoeda(valor);
+		}
+
+		public nome : String ;
+
+		constructor(objeto:any){
+		super();
+		if(objeto != null){
+if(typeof(objeto.ionicFlagNovo) == 'undefined') this.ionicFlagNovo = false; else this.ionicFlagNovo = objeto.ionicFlagNovo;
+			 this.codigo = objeto.codigo;
+			 this.nome = objeto.nome;
+
+		}
+		else{
+this.ionicFlagNovo = true;
+			 this.codigo = 0;
+
+		}
+
+
+		}
+
+}
+
+
+export class VisitaAcompDomCras extends ionicClasseBase {
+
+	static criaColecao(lista: any){
+		if(lista!=null){
+			var retorno = new Array();
+			for(let x = 0;x<lista.length;x++)
+				retorno.push(new VisitaAcompDomCras(lista[x]));
+			return retorno;
+		}
+	}
+
+		public codigo : number ;
+		get codigoSimNao(){ if (this.codigo == 1) return true; else return false;}
+		set codigoSimNao(flag){ if (flag) this.codigo = 1; else this.codigo = 0;}
+		get codigoFormatado(): String {
+			return  Mentor.moedaToString(this.codigo)
+		}
+		set codigoFormatado(valor: String) {
+			this.codigo =  Mentor.stringToMoeda(valor);
+		}
+
+		public inicio : Date ;
+		get inicioFormatado(): String {
+			return  Mentor.dateToString(this.inicio)
+		}
+		set inicioFormatado(valor: String) {
+			this.inicio =  Mentor.stringToDate(valor);
+		}
+
+		public encerrada : number ;
+		get encerradaSimNao(){ if (this.encerrada == 1) return true; else return false;}
+		set encerradaSimNao(flag){ if (flag) this.encerrada = 1; else this.encerrada = 0;}
+		public encerradaFormatadoLista : formatadoLista[] = new Array();
+
+
+		public latitude : number ;
+		get latitudeSimNao(){ if (this.latitude == 1) return true; else return false;}
+		set latitudeSimNao(flag){ if (flag) this.latitude = 1; else this.latitude = 0;}
+		get latitudeFormatado(): String {
+			return  Mentor.moedaToString(this.latitude)
+		}
+		set latitudeFormatado(valor: String) {
+			this.latitude =  Mentor.stringToMoeda(valor);
+		}
+
+		public longitude : number ;
+		get longitudeSimNao(){ if (this.longitude == 1) return true; else return false;}
+		set longitudeSimNao(flag){ if (flag) this.longitude = 1; else this.longitude = 0;}
+		get longitudeFormatado(): String {
+			return  Mentor.moedaToString(this.longitude)
+		}
+		set longitudeFormatado(valor: String) {
+			this.longitude =  Mentor.stringToMoeda(valor);
+		}
+
+		public obs : String ;
+		public domicilioCras : DomicilioCras ;
+
+		constructor(objeto:any){
+		super();
+		if(objeto != null){
+if(typeof(objeto.ionicFlagNovo) == 'undefined') this.ionicFlagNovo = false; else this.ionicFlagNovo = objeto.ionicFlagNovo;
+			 this.codigo = objeto.codigo;
+			 if(objeto.inicioFormatado != null)
+				 this.inicio = Mentor.stringToDate(objeto.inicioFormatado);
+			 else
+				 this.inicio = objeto.inicio;
+			 this.encerrada = objeto.encerrada;
+			 this.latitude = objeto.latitude;
+			 this.longitude = objeto.longitude;
+			 this.obs = objeto.obs;
+
+			if(objeto.domicilioCras != null)
+				this.domicilioCras = new DomicilioCras(objeto.domicilioCras);
+
+		}
+		else{
+this.ionicFlagNovo = true;
+			 this.codigo = 0;
+			 this.encerrada = 0;
+				this.domicilioCras = new DomicilioCras(null);
+
+		}
+
+			this.encerradaFormatadoLista.push(new formatadoLista(0,"Não"));
+			this.encerradaFormatadoLista.push(new formatadoLista(1,"Sim"));
+
+		}
+
+}
+
+
+export class AssociadoCras extends ionicClasseBase {
+
+	static criaColecao(lista: any){
+		if(lista!=null){
+			var retorno = new Array();
+			for(let x = 0;x<lista.length;x++)
+				retorno.push(new AssociadoCras(lista[x]));
+			return retorno;
+		}
+	}
+
+		public codigo : number ;
+		get codigoSimNao(){ if (this.codigo == 1) return true; else return false;}
+		set codigoSimNao(flag){ if (flag) this.codigo = 1; else this.codigo = 0;}
+		get codigoFormatado(): String {
+			return  Mentor.moedaToString(this.codigo)
+		}
+		set codigoFormatado(valor: String) {
+			this.codigo =  Mentor.stringToMoeda(valor);
+		}
+
+		public nome : String ;
+
+		constructor(objeto:any){
+		super();
+		if(objeto != null){
+if(typeof(objeto.ionicFlagNovo) == 'undefined') this.ionicFlagNovo = false; else this.ionicFlagNovo = objeto.ionicFlagNovo;
+			 this.codigo = objeto.codigo;
+			 this.nome = objeto.nome;
+
+		}
+		else{
+this.ionicFlagNovo = true;
+			 this.codigo = 0;
+
+		}
+
+
+		}
+
+}
+
