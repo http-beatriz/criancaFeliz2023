@@ -1,17 +1,17 @@
 import { Storage } from '@ionic/storage';
-import { Select, TextInput, RadioGroup } from 'ionic-angular';
-
-
-
-import {  NavController } from 'ionic-angular';
+//import { Select, TextInput, RadioGroup } from 'ionic-angular';
+//import {  NavController } from 'ionic-angular';
+import { IonSelect, IonInput} from '@ionic/angular' 
+import { Router } from '@angular/router'
 
 import { DomicilioCras, Funcionarios, PcfCaracterizacaoCrianca, PcfRespostaIndicadores, PcfCaracterizacaoGestante, PcfPlanoVisita, FormularioPesquisa, pcfAppFormulario } from '../models/Modelo'
 import { Mentor } from '../models/Mentor'
 import { Escola } from './Modelo';
 
 export class Controlador {
+	nav: Router;
 
-
+	
 	public inicializaDiagnostico(diagnostico: any[], servidor: Funcionarios){
 		for(var d = 0;d<diagnostico.length;d++){
 			if(diagnostico[d].codigo==0 || typeof(diagnostico[d].codigo) == "undefined")
@@ -72,13 +72,13 @@ export class Controlador {
 		var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
 		if (diffDays >= inicio && diffDays <= fim)
-			return true;
+			return false;
 		else
 			return false;
 
 	}
-
-	public valida(selects: Select[], inputs: TextInput[]) {
+/*validaca
+	public valida(selects: IonSelect[], inputs: IonInput[]) {
 		if (selects != null) {
 			for (var x: number = 0; x < selects.length; x++) {
 				if(document.getElementById(selects[x].id).parentElement.id != "ignora" )
@@ -89,7 +89,6 @@ export class Controlador {
 				}
 			}
 		}
-
 		if (inputs != null) {
 			for (var x: number = 0; x < inputs.length; x++) {
 				if (inputs[x].value == "" || inputs[x].value == "0") {
@@ -102,6 +101,7 @@ export class Controlador {
 
 		return true;
 	}
+	*/
 
 	public enderecoCompleto(dom: DomicilioCras) {
 		var retorno = "";
@@ -154,23 +154,23 @@ export class Controlador {
 
 	}
 
-
-	salvaRaizCrianca(crianca: PcfCaracterizacaoCrianca, store: Storage, nav: NavController) {
+//aqui
+	salvaRaizCrianca(crianca: PcfCaracterizacaoCrianca, store: Storage, nav: Router) {
 		store.get("criancas").then(raizes => {
 			raizes[crianca.ionicIndiceRepositorio] = crianca
 			store.set("criancas", raizes);
-			if (nav != null)
-				nav.pop();
+			//if (nav != null)
+				//nav.pop();
 		});
 	}
 
-
-	salvaRaizGestante(gestante: PcfCaracterizacaoGestante, store: Storage, nav: NavController) {
+//aqui
+	salvaRaizGestante(gestante: PcfCaracterizacaoGestante, store: Storage, nav: Router) {
 		store.get("gestantes").then(raizes => {
 			raizes[gestante.ionicIndiceRepositorio] = gestante
 			store.set("gestantes", raizes);
 			if (nav != null)
-				nav.pop();
+				this.nav.navigateByUrl("/");
 		});
 	}
 
@@ -198,8 +198,8 @@ export class Controlador {
 									return planos[p];
 
 	}
-
-	public sincronizaDadosServidor(sto: Storage, funcionario: Funcionarios, nav: NavController) {
+//aqui
+	public sincronizaDadosServidor(sto: Storage, funcionario: Funcionarios, nav: Router) {
 		// envia Dados
 
 		var supervisores: Funcionarios[];
@@ -345,8 +345,8 @@ export class Controlador {
 
 			});
 
-		if (nav != null)
-			nav.pop();
+		//if (nav != null)
+		//	nav.pop();
 	}
 
 }
