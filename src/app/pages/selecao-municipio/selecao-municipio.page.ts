@@ -54,7 +54,7 @@ export class SelecaoMunicipioPage implements OnInit {
     try{
 
       this.listaMunicipios = Mentor.executaVisao(2890, "varEstado=" + this.estado.codigo + "&varSistema=1");
-     //alert(this.listarMunicipios);
+   
     }catch(e){
       alert(e);
     }
@@ -68,18 +68,14 @@ export class SelecaoMunicipioPage implements OnInit {
 
     this.estado = null;
     Mentor.UrlRequest = "https://app.conectasuas.com.br/assistenciaSocial/"
-    //"https://app.conectasuas.com.br/assistenciaSocial/";
-    //"http://app.vvision.com.br:8080/assistenciaSocial/"
-    //alert("vou recuperar")
+
     
     try{
       this.listaestado = Mentor.executaVisao(314, "");
-    //  alert(this.listaestado)
     }catch(err){
 alert(err)
     }
 
-    //alert("recuperei")
     this.municipio = null;
   }
 

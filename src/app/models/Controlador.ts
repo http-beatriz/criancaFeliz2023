@@ -9,8 +9,6 @@ import { Mentor } from '../models/Mentor'
 import { Escola } from './Modelo';
 
 export class Controlador {
-	nav: Router;
-
 	
 	public inicializaDiagnostico(diagnostico: any[], servidor: Funcionarios){
 		for(var d = 0;d<diagnostico.length;d++){
@@ -170,7 +168,7 @@ export class Controlador {
 			raizes[gestante.ionicIndiceRepositorio] = gestante
 			store.set("gestantes", raizes);
 			if (nav != null)
-				this.nav.navigateByUrl("/");
+				nav.navigateByUrl('/');
 		});
 	}
 

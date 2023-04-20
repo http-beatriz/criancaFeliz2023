@@ -6,8 +6,13 @@
 export class servico {
 
     static enviaDados: boolean = false;
+
+    static plano: any = null;
+
     static usuarioLogado: any = null;
+
     static imagem: String = null;
+    
     static nome: String = null;
 
     static dataUltimoAcessoApp : Date = null;
@@ -18,11 +23,9 @@ export class servico {
 
     static temMensagemNova: boolean = false;
 
-    static historico: any = null;
-
     static unidade: any = null;
 
-    static mensagens: any = null;
+   
 
     // padrao
 
